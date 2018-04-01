@@ -3,6 +3,7 @@ https://developer.mozilla.org/ja/docs/Web/JavaScript/A_re-introduction_to_JavaSc
 ## 型
 - 数値
 - 文字列
+  - 文字列もオブジェクト
 - Symbol
 - オブジェクト
   - 関数
