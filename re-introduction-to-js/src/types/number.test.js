@@ -11,6 +11,7 @@ test('数値は double-precision 64-bit format IEEE 754 values', () => {
 test('parsing', () => {
   expect(parseInt('123', 10)).toBe(123);
   expect(+'123').toBe(123);
+  expect(+(-123)).toBe(-123);
 
   expect(parseInt('0x10')).toBe(16);
   expect(parseInt('10', 16)).toBe(16);
