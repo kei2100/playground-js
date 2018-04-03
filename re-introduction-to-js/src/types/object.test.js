@@ -1,5 +1,5 @@
 test('define with method', () => {
-  let o = {
+  const o = {
     myMethod1: function (v) {
       return v + v;
     }
