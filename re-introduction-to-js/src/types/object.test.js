@@ -63,3 +63,17 @@ test('property traverse', () => {
   expect(Object.keys(obj2)).toEqual([]);
   expect(Object.getOwnPropertyNames(obj2)).toEqual(["getOne"]);
 });
+
+test('Object.create()', () => {
+  // オブジェクトは Object.create() メソッドを使用して作成することもできる。
+  // このメソッドは、コンストラクター関数の定義なしに作りたいオブジェクトのプロトタイプを選べる
+
+  const base = {
+    type: 'unknown',
+    toString: function() { return `[${this.type}]` }
+  };
+
+  const atype = Object.create(base);
+  atype.type = 'A';
+  expect(atype.toString()).toBe('[A]')
+});
