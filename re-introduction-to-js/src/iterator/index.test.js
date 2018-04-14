@@ -27,7 +27,6 @@ test('usage', () => {
   let want = 0;
   for (const v of iterable) {
     expect(v).toBe(want);
-    console.log(v)
     want++;
   }
   expect(want).toBe(10);
@@ -38,4 +37,12 @@ test('usage', () => {
   arr = [0, 1, 2];
   arrItr = arr[Symbol.iterator]();
   expect(arrItr[Symbol.iterator]()).toBe(arrItr);
+
+  // arrItr自体がiterableなので for ... ofできる
+  want = 0;
+  for (const v of arrItr) {
+    expect(v).toBe(want);
+    want++;
+  }
+  expect(want).toBe(3);
 });
