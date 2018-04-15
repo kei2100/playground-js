@@ -46,3 +46,16 @@ test('usage', () => {
   }
   expect(want).toBe(3);
 });
+
+test('more usage', () => {
+  // iterableなオブジェクトは展開できる（スプレッド構文）
+  const s = 'abc';
+  expect([...s]).toEqual(['a', 'b', 'c']);
+  expect(Array.from(s)).toEqual(['a', 'b', 'c']);
+
+  // 分割代入
+  const [a, b, c] = [...s];
+  expect(a).toBe('a');
+  expect(b).toBe('b');
+  expect(c).toBe('c');
+});
