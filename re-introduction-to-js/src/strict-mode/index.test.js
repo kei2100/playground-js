@@ -2,7 +2,7 @@
 // strictモードのスクリプトと、そうでないスクリプトを連結すると問題になる可能性がある
 // そういった場合に、関数適用を考える
 
-test('strict unexpected global variable definition', () => {
+test('unexpected global variable definition', () => {
   'use strict';
   expect(() => {
     hoge = 1;
@@ -15,7 +15,7 @@ test('no-strict unexpected global variable definition', () => {
   }).not.toThrow(ReferenceError);
 });
 
-test('strict unexpected assignment', () => {
+test('unexpected assignment', () => {
   expect(() => {
     // Assignment to a non-writable property
     'use strict';
@@ -44,7 +44,7 @@ test('strict unexpected assignment', () => {
   }).toThrow(TypeError);
 });
 
-test('strict invalid delete a property', () => {
+test('invalid delete a property', () => {
   expect(() => {
     'use strict';
     delete Object.prototype;
