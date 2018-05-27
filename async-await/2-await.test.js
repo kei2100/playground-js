@@ -40,3 +40,15 @@ test('await with for', async () => {
   await expect(f2()).resolves.toBe(3);
 });
 
+test('await promise all', async () => {
+  const f1 = async function () { return 1; };
+  const f2 = async function () { return 2; };
+
+  const f3 = async function () {
+    const [v1, v2] = await Promise.all([f1(), f2()]);
+    return v1 + v2;
+  };
+
+  await expect(f3()).resolves.toBe(3);
+});
+
