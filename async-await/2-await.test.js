@@ -52,3 +52,23 @@ test('await promise all', async () => {
   await expect(f3()).resolves.toBe(3);
 });
 
+test('await handle reject in try catch', async () => {
+  const ok = function () { return new Promise(resolve => { resolve(1); }); };
+  const ng = function () { return new Promise((resolve, reject) => { reject(100); }); };
+
+  const f = async function () {
+    let v = 0;
+
+    try {
+      v += await ok();
+      v += await ok();
+      v += await ok();
+      v += await ng();
+    } catch (e) {
+      expect(e.toString()).toBe('100');
+    }
+    return v;
+  };
+
+  await expect(f()).resolves.toBe(3);
+});
